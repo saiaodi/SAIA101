@@ -135,6 +135,7 @@
 <div style="width: 100%; display: flex; justify-content: center; margin: 32px 0;">
   <a href="https://mail.google.com/mail/?view=cm&fs=1&to=difaimani@gmail.com&su=Music%20Collab%20With%20SAIA&body=Halo%20SAIA,%20saya%20tertarik%20untuk%20kolaborasi%20musik%20bersama%20Anda."
      target="_blank"
+     class="collab-btn"
      style="background: linear-gradient(90deg,#a78bfa,#f472b6); color: #fff; padding: 12px 32px; border-radius: 8px; font-weight: bold; text-decoration: none; font-size: 1.1em; box-shadow: 0 2px 12px #0002;">
     Ingin Kolaborasi? Klik di sini!
   </a>
@@ -347,6 +348,56 @@ h4 {
   box-shadow: 0 4px 24px #000;
   background: #222;
   transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.5s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Add this to your <style> section */
+/* just a marker for context */
+
+.collab-btn:hover {
+    filter: brightness(0.7) !important;
+    transition: filter 0.2s;
+}
+
+/* Add or update this CSS in your <style> section for perfect arrow centering */
+#featured-slideshow > div:last-child {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 16px;
+  margin-top: 16px;
+  width: 100%;
+  padding: 0;
+}
+#featured-slideshow button {
+  background: none;
+  color: #a78bfa;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 2em;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  margin: 0;
+  padding: 0;
+}
+
+/* Add or update this in your <style> section for perfect centering of the featured video */
+#slide-content iframe {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 24px #0004;
+}
+#slide-content p {
+  text-align: center;
+  width: 100%;
+  margin-top: 12px;
 }
 </style>
 
@@ -661,14 +712,14 @@ const featuredSlides = [
   {
     type: "video",
     title: "Featured Video",
-    content: `<iframe width="320" height="180" src="https://www.youtube.com/embed/r7EznjqtyAo" frameborder="0" allowfullscreen style="border-radius: 10px;"></iframe>
-      <p style='color: #d4d4d8; margin-top: 12px;'>Tonton video musik terbaru SAIA!</p>`
+    content: `<iframe width="320" height="180" src="https://www.youtube.com/embed/r7EznjqtyAo" frameborder="0" allowfullscreen></iframe>
+      <p>Tonton video musik terbaru SAIA!</p>`
   },
   {
     type: "list",
     title: "Upcoming Releases",
-    content: `<ul style="color: #d4d4d8; margin: 16px auto 0 auto; padding: 0 0 0 20px; max-width: 350px; text-align:left;">
-      <li>First EP <b>"GLOW"</b> — Coming Soon!</li>
+    content: `<ul style="color: #d4d4d8; margin: 16px auto 0 auto; padding: 0 0 0 20px; max-width: 350px; text-align: center;">
+      <li>New EP <b>"GLOW"</b> — Coming Soon!</li>
     </ul>`
   }
   // You can add more slides here if you want!
