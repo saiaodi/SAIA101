@@ -7,9 +7,6 @@
     <link rel="icon" type="image/png" href="491843255_748569587666149_5178211439751687547_n.jpg">
     <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', Arial, sans-serif;
-        }
     </style>
 </head>
 
@@ -32,7 +29,7 @@
                 </div>
                 <!-- Quick Stats -->
                 <div style="background: #27272a; border-radius: 1rem; padding: 24px; padding-bottom: 70px; border: 1px solid #a78bfa33;">
-                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 16px; color: #a78bfa; margin-left: 120px;">
+                    <h3 style="font-size: x-large; font-weight: bold; margin-bottom: 16px; color: #a78bfa; margin-left: 120px;">
                         Quick Stats</h3>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
                         <div style="text-align: center;">
@@ -66,7 +63,7 @@
             <div style="flex: 2 1 400px; min-width: 320px; display: flex; flex-direction: column; gap: 32px;">
                 <!-- Biography -->
                 <div style="background: #27272a; border-radius: 1rem; padding: 24px; border: 1px solid #a78bfa33;">
-                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 16px; color: #a78bfa; text-align: center; margin-left: 0px">
+                    <h3 style="font-size: x-large; font-weight: bold; margin-bottom: 16px; color: #a78bfa; text-align: center; margin-left: 0px">
                         Biography</h3>
                     <div style="color: #d4d4d8; line-height: 1.7; margin-bottom: 16px;">
                         <p>
@@ -86,7 +83,7 @@
                 </div>
                 <!-- Musical Style -->
                 <div style="background: #27272a; border-radius: 1rem; padding: 24px; border: 1px solid #a78bfa33;">
-                    <h3 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 16px; color: #a78bfa; text-align: center; margin-left: 0;">Musical Style</h3>
+                    <h3 style="font-size: 2rem; font-weight: bold; margin-bottom: 16px; color: #a78bfa; text-align: center; margin-left: 0;">Musical Style</h3>
                     <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; justify-content: center;">
                         <span style="background: #8b5cf6; color: #fff; padding: 4px 16px; border-radius: 999px; font-size: 0.95em;">Contemporary Rap</span>
                         <span style="background: #db2777; color: #fff; padding: 4px 16px; border-radius: 999px; font-size: 0.95em;">Melodic Hip-Hop</span>
@@ -139,13 +136,18 @@
   </a>
 </div>
 
-<button id="sidebar-toggle" style="position: fixed; top: 24px; left: 24px; z-index: 1001; background: #23232a; color: #ffffff; border: none; border-radius: 8px; padding: 10px 16px; font-size: 1.1em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 12px #0002;">
-    ☰
+<button id="sidebar-toggle" aria-label="Toggle Sidebar"
+  style="position: fixed; top: 24px; left: 24px; z-index: 1001; background: #23232a; color: #ffffff; border: none; border-radius: 8px; padding: 10px 16px; font-size: 1.1em; font-weight: bold; cursor: pointer; box-shadow: 0 2px 12px #0002; transition: background 0.2s;">
+  <span id="sidebar-toggle-icon" style="display: inline-block; transition: transform 0.3s cubic-bezier(0.4,0,0.2,1); font-size: 1.5em;">☰</span>
 </button>
-<div id="sidebar" style="position: fixed; top: 0; left: -320px; width: 300px; height: 100vh; background: #18181b; color: #fff; box-shadow: 2px 0 16px #0006; z-index: 1000; transition: left 0.3s cubic-bezier(0.4,0,0.2,1); padding: 32px 24px 24px 24px; display: flex; flex-direction: column; gap: 24px;">
-</div>
 
-</body>
+<div id="sidebar" style="position: fixed; top: 0; left: -320px; width: 300px; height: 100vh; background: #18181b; color: #fff; box-shadow: 2px 0 16px #0006; z-index: 1000; transition: left 0.3s cubic-bezier(0.4,0,0.2,1); padding: 32px 24px 24px 24px; display: flex; flex-direction: column; gap: 24px;">
+  <a href="merchandise.html"
+    style="background:linear-gradient(90deg,#a78bfa,#f472b6);color:#fff;display:block;text-align:center;padding:12px 0;border-radius:8px;font-weight:bold;text-decoration:none;width:100%;box-shadow:0 2px 12px #0002;margin-top: 60px;">
+    Merchandise
+  </a>
+  <!-- You can add more sidebar content here -->
+</div>
 
 <footer>  
         <ul>
@@ -169,13 +171,14 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-family: Arial, sans-serif;
-    background-color: #000000;
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: #18181b; /* Set background to #18181b */
     color: #ffffff;
     margin: 0;
-    padding: 20px 0; /* Only vertical padding */
+    padding: 20px 0;
     text-align: justify;
     transition: background-color 0.7s cubic-bezier(0.4,0,0.2,1);
+    font-size: x-large;
 }
 
 body::before {
@@ -389,6 +392,27 @@ h4 {
 }
 #sidebar.sidebar-open {
   left: 0 !important; /* Show sidebar when open */
+}
+
+/* Add this to your <style> section for smooth icon transition */
+#sidebar-toggle-icon {
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), color 0.3s;
+}
+/* Removed empty ruleset: #sidebar.sidebar-open ~ #sidebar-toggle #sidebar-toggle-icon */
+
+/* Add this to your <style> section */
+#sidebar a[href="merchandise.html"]:hover {
+    filter: brightness(0.7) !important;
+    transition: filter 0.2s;
+}
+
+/* Add or update this in your <style> section */
+#slide-content h3 {
+    font-size: 2rem !important;
+    font-weight: bold;
+    color: #a78bfa;
+    margin-bottom: 16px;
+    text-align: center;
 }
 </style>
 
@@ -745,9 +769,18 @@ showFeaturedSlide(featuredCurrent);
 // Sidebar toggle logic
 const sidebar = document.getElementById('sidebar');
 const sidebarToggle = document.getElementById('sidebar-toggle');
+const sidebarToggleIcon = document.getElementById('sidebar-toggle-icon');
 
-sidebarToggle.onclick = () => {
+sidebarToggle.onclick = (e) => {
+    e.stopPropagation(); // Prevent event bubbling so document click doesn't immediately close sidebar
     sidebar.classList.toggle('sidebar-open');
+    if (sidebar.classList.contains('sidebar-open')) {
+        sidebarToggleIcon.textContent = '✕';
+        sidebarToggleIcon.style.transform = 'rotate(180deg)';
+    } else {
+        sidebarToggleIcon.textContent = '☰';
+        sidebarToggleIcon.style.transform = 'rotate(0deg)';
+    }
 };
 
 // Optional: close sidebar when clicking outside
@@ -755,9 +788,11 @@ document.addEventListener('click', function(e) {
     if (
         sidebar.classList.contains('sidebar-open') &&
         !sidebar.contains(e.target) &&
-        e.target !== sidebarToggle
+        !sidebarToggle.contains(e.target) // <-- this line ensures the whole button toggles, not just the icon
     ) {
         sidebar.classList.remove('sidebar-open');
+        sidebarToggleIcon.textContent = '☰';
+        sidebarToggleIcon.style.transform = 'rotate(0deg)';
     }
 });
 
