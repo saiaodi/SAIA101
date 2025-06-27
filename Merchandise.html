@@ -1,0 +1,275 @@
+<!doctype html>
+<html>
+<head>
+  <title>SAIA Merchandise</title>
+  <meta charset="utf-8">
+     <link rel="icon" type="image/png" href="491843255_748569587666149_5178211439751687547_n.jpg">
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+  <style>
+    body { background: #000; color: #fff; font-family: 'Inter', Arial, sans-serif; margin:0; }
+    .merch-container { 
+      max-width: 900px; 
+      margin: 40px auto; 
+      display: grid; 
+      grid-template-columns: repeat(2, 1fr); /* 2 columns, left and right */
+      gap: 32px; 
+    }
+    @media (max-width: 700px) {
+      .merch-container {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+      }
+    }
+    .merch-item { 
+      background: #23232a; 
+      border-radius: 1rem; 
+      padding: 24px; 
+      margin-bottom: 0; /* Remove margin-bottom for grid */
+      display: flex; 
+      flex-direction: column; 
+      align-items: center;
+    }
+    .merch-item img { max-width: 180px; border-radius: 8px; margin-bottom: 16px; /* Add space below image */ }
+    .merch-title { font-size: 1.2em; color: #a78bfa; font-weight: bold; }
+    .merch-desc { color: #d4d4d8; margin: 10px 0; text-align: center; }
+    .merch-buy { background: #f472b6; color: #fff; border: none; border-radius: 6px; padding: 8px 18px; font-weight: bold; cursor: pointer; }
+    .merch-buy:hover {
+  filter: brightness(0.8);
+  transition: filter 0.2s;
+}
+    /* Sidebar styles */
+    #sidebar {
+      position: fixed; top: 0; left: -100vw; width: 300px; height: 100vh;
+      background: #18181b; color: #fff; box-shadow: 2px 0 16px #0006;
+      z-index: 1000; transition: left 0.3s cubic-bezier(0.4,0,0.2,1);
+      padding: 32px 24px 24px 24px; display: flex; flex-direction: column; gap: 24px;
+    }
+    #sidebar.sidebar-open { left: 0 !important; }
+    #sidebar-toggle {
+      position: fixed; top: 24px; left: 24px; z-index: 1001; background: #23232a; color: #ffffff;
+      border: none; border-radius: 8px; padding: 10px 16px; font-size: 1.1em; font-weight: bold;
+      cursor: pointer; box-shadow: 0 2px 12px #0002; transition: background 0.2s;
+    }
+    #sidebar-toggle-icon {
+      display: inline-block; transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), color 0.3s; font-size: 1.5em;
+    }
+    #sidebar a[href="merchandise.html"]:hover {
+      filter: brightness(0.7) !important;
+      transition: filter 0.2s;
+    }
+    .back-home {
+      display: block;
+      margin: 32px auto 0 auto;
+      background: linear-gradient(90deg,#a78bfa,#f472b6);
+      color: #fff;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1.1em;
+      box-shadow: 0 2px 12px #0002;
+      text-align: center;
+      width: fit-content;
+    }
+    .back-home:hover {
+      filter: brightness(0.7);
+      transition: filter 0.2s;
+    }
+    #img-modal-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px #000a;
+  transition: transform 0.2s;
+  display: block;
+  margin-bottom: 24px;
+  /* Add this to keep the image centered and not overlap the buttons */
+  position: relative;
+  z-index: 1;
+}
+
+#img-modal .zoom-controls {
+  margin-top: 0;
+  display: flex;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+  justify-content: center;
+}
+
+#img-modal-close {
+  position: absolute;
+  top: 32px;
+  right: 48px;
+  font-size: 2.5em;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 2001;
+  background: none; /* Remove the circle background */
+  border-radius: 0;
+  padding: 0 16px 2px 16px;
+  line-height: 1.2;
+  /* Add a strong text shadow for visibility */
+  text-shadow:
+    0 2px 8px #000,
+    0 0 6px #000,
+    0 0 12px #000;
+  box-shadow: none;
+  transition: background 0.2s;
+}
+#img-modal-close:hover {
+  background: none;
+}
+  </style>
+</head>
+<body>
+  <!-- Sidebar Toggle Button -->
+  <button id="sidebar-toggle" aria-label="Toggle Sidebar">
+    <span id="sidebar-toggle-icon">☰</span>
+  </button>
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <a href="index.html"
+      style="background:linear-gradient(90deg,#a78bfa,#f472b6);color:#fff;display:block;text-align:center;padding:12px 0;border-radius:8px;font-weight:bold;text-decoration:none;width:100%;box-shadow:0 2px 12px #0002;margin-top:60px;">
+      Back to Home
+    </a>
+    <!-- You can add more sidebar content here -->
+  </div>
+  <!-- Main Content -->
+  <div class="merch-container">
+    <div class="merch-item">
+      <img src="DESK BG_MOCKUPCARD_SPOTIFY.jpg" alt="Kaos SAIA">
+      <div class="merch-title">ID card EP GLOW</div>
+      <div class="merch-desc">ID card khusus dari EP perdana SAIA, "GLOW"</div>
+      <a href="#" class="merch-buy" target="_blank">Beli Sekarang</a>
+    </div>
+    <div class="merch-item">
+      <img src="totebag-saia.jpg" alt="Totebag SAIA">
+      <div class="merch-title">Totebag SAIA</div>
+      <div class="merch-desc">Totebag stylish untuk aktivitas harianmu.</div>
+      <a href="#" class="merch-buy" target="_blank">Beli Sekarang</a>
+    </div>
+    <div class="merch-item">
+      <img src="totebag-saia.jpg" alt="Totebag SAIA">
+      <div class="merch-title">Totebag SAIA</div>
+      <div class="merch-desc">Totebag stylish untuk aktivitas harianmu.</div>
+      <a href="#" class="merch-buy" target="_blank">Beli Sekarang</a>
+    </div>
+    <!-- Tambahkan produk lain di sini, setiap produk dalam .merch-item -->
+  </div>
+  <!-- Image Modal -->
+  <div id="img-modal" style="display:none; position:fixed; z-index:2000; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.85); align-items:center; justify-content:center;">
+    <span id="img-modal-close" style="position:absolute;top:32px;right:48px;font-size:2.5em;color:#fff;cursor:pointer;font-weight:bold;z-index:2001;">&times;</span>
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <img id="img-modal-img" src="" alt="Preview" />
+      <div class="zoom-controls">
+        <button id="zoom-in" style="font-size:1.5em;padding:6px 18px;border-radius:8px;border:none;cursor:pointer;background:#23232a;color:#fff;">+</button>
+        <button id="zoom-out" style="font-size:1.5em;padding:6px 18px;border-radius:8px;border:none;cursor:pointer;background:#23232a;color:#fff;">-</button>
+        <button id="zoom-reset" style="font-size:1.1em;padding:6px 18px;border-radius:8px;border:none;cursor:pointer;background:#23232a;color:#fff;">Reset</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Sidebar toggle logic
+    const sidebar = document.getElementById('sidebar');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebarToggleIcon = document.getElementById('sidebar-toggle-icon');
+
+    sidebarToggle.onclick = (e) => {
+      e.stopPropagation();
+      sidebar.classList.toggle('sidebar-open');
+      if (sidebar.classList.contains('sidebar-open')) {
+        sidebarToggleIcon.textContent = '✕';
+        sidebarToggleIcon.style.transform = 'rotate(180deg)';
+      } else {
+        sidebarToggleIcon.textContent = '☰';
+        sidebarToggleIcon.style.transform = 'rotate(0deg)';
+      }
+    };
+
+    // Optional: close sidebar when clicking outside
+    document.addEventListener('click', function(e) {
+      if (
+        sidebar.classList.contains('sidebar-open') &&
+        !sidebar.contains(e.target) &&
+        !sidebarToggle.contains(e.target)
+      ) {
+        sidebar.classList.remove('sidebar-open');
+        sidebarToggleIcon.textContent = '☰';
+        sidebarToggleIcon.style.transform = 'rotate(0deg)';
+      }
+    });
+
+    // Preview image modal logic
+    document.querySelectorAll('.merch-item img').forEach(function(img) {
+      img.style.cursor = "pointer";
+      img.onclick = function() {
+        document.getElementById('img-modal-img').src = this.src;
+        document.getElementById('img-modal').style.display = 'flex';
+      };
+    });
+    document.getElementById('img-modal-close').onclick = function() {
+      document.getElementById('img-modal').style.display = 'none';
+      document.getElementById('img-modal-img').src = '';
+    };
+    // Close modal when clicking outside the image
+    document.getElementById('img-modal').onclick = function(e) {
+      if (e.target === this) {
+        this.style.display = 'none';
+        document.getElementById('img-modal-img').src = '';
+      }
+    };
+
+    // Zoom functionality
+    let zoom = 1;
+    const imgModalImg = document.getElementById('img-modal-img');
+    document.getElementById('zoom-in').onclick = function(e) {
+      e.stopPropagation();
+      zoom = Math.min(zoom + 0.2, 5);
+      imgModalImg.style.transform = `scale(${zoom})`;
+    };
+    document.getElementById('zoom-out').onclick = function(e) {
+      e.stopPropagation();
+      zoom = Math.max(zoom - 0.2, 0.2);
+      imgModalImg.style.transform = `scale(${zoom})`;
+    };
+    document.getElementById('zoom-reset').onclick = function(e) {
+      e.stopPropagation();
+      zoom = 1;
+      imgModalImg.style.transform = `scale(1)`;
+    };
+    // Reset zoom when modal opened/closed
+    document.querySelectorAll('.merch-item img').forEach(function(img) {
+      img.onclick = function() {
+        imgModalImg.src = this.src;
+        document.getElementById('img-modal').style.display = 'flex';
+        zoom = 1;
+        imgModalImg.style.transform = 'scale(1)';
+      };
+    });
+    document.getElementById('img-modal-close').onclick = function() {
+      document.getElementById('img-modal').style.display = 'none';
+      imgModalImg.src = '';
+      zoom = 1;
+      imgModalImg.style.transform = 'scale(1)';
+    };
+    document.getElementById('img-modal').onclick = function(e) {
+      if (e.target === this) {
+        this.style.display = 'none';
+        imgModalImg.src = '';
+        zoom = 1;
+        imgModalImg.style.transform = 'scale(1)';
+      }
+    };
+  </script>
+</body>
+<footer style="margin-top: auto; padding-bottom: 50px; padding-top: 30px;">
+  <ul style="display: flex; justify-content: center; gap: 32px; list-style: none; padding: 0; margin: 0 0 12px 0;">
+    <li><a href="https://www.instagram.com/saiaodi/" target="_blank" style="color:#a78bfa; text-decoration:none; font-weight:bold;">Instagram</a></li>
+    <li><a href="https://open.spotify.com/artist/5249eP0fYe9geCaz4ZzhQk?si=vsYYdAMfSaeAbeYhDDBbRA" target="_blank" style="color:#a78bfa; text-decoration:none; font-weight:bold;">Spotify</a></li>
+    <li><a href="https://open.spotify.com/show/2ej5HruOt2P1U4pTPunWnf?si=376a070134f641d1" target="_blank" style="color:#a78bfa; text-decoration:none; font-weight:bold;">Podcast</a></li>
+    <li><a href="https://www.youtube.com/@sayaodi" target="_blank" style="color:#a78bfa; text-decoration:none; font-weight:bold;">YouTube</a></li>
+  </ul>
+  <p style="color:#ffffff; text-align:center; font-size:1em; margin:0;">© 2025 SAIA</p>
+</footer>
+</html>
